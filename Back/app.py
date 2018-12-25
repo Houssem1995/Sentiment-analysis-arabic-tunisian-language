@@ -14,6 +14,10 @@ def login(text):
     if request.method == 'GET':
         a = nb_model.predict_proba(bow_model_char.transform([text]))
         res = str(nb_model.predict(bow_model_char.transform([text])))
+        if (res == "['ARA']"):
+            res = 'Arabic'
+        else:
+            res = 'Tunisian'
         return jsonify(ARA = str(a[0][0]),  TUN = str(a[0][1]) , res = res)
         #return jsonify ()
 

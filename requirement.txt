@@ -1,0 +1,12 @@
+
+
+pip install flask_cors 
+pip install flask
+
+
+
+
+npm install bootstrap 
+npm install reactstrap
+
+

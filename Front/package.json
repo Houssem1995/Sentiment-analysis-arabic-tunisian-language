@@ -3,10 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
     "bootstrap": "^4.2.1",
     "cors": "^2.8.5",
+    "filepond": "^3.7.1",
+    "filepond-plugin-image-exif-orientation": "^1.0.3",
+    "filepond-plugin-image-preview": "^3.1.5",
+    "filepond-plugin-image-transform": "^3.2.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "react-filepond": "^5.0.0",
     "react-scripts": "2.1.2",
     "reactstrap": "^6.5.0"
   },

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Upload from './upload';
 import {
   Button,
   Progress,
@@ -61,12 +62,12 @@ class Form extends Component {
   };
   render() {
     return (
-      <div className="form-group">
+      <div className="form-group ">
         <br />
         <InputGroup
           type="text"
           onChange={this.handleChange}
-          className="form-control"
+          className="form-control "
           id="ex1"
           type="text"
           style={this.style}
@@ -96,8 +97,9 @@ class Form extends Component {
           <InputGroupAddon addonType="prepend">@Result</InputGroupAddon>
           <Input value={this.state.RES} />
         </InputGroup>
+        <br />
 
-        <div style={this.style} className="text-center">
+        <div style={this.style} className="text-center col-md-5">
           ARABIC <p>{this.state.ARA}</p>
         </div>
         <Progress style={this.styleBar} value={this.state.ARA} />
@@ -106,6 +108,12 @@ class Form extends Component {
           TUNISIAN <p>{this.state.TUN}</p>
         </div>
         <Progress style={this.styleBar} value={this.state.TUN} />
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <Upload />
       </div>
     );
   }

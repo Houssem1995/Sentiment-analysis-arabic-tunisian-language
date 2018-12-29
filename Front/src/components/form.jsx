@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Upload from './upload';
+
+import ParticleAnimation from 'react-particle-animation';
 import {
   Button,
   Progress,
@@ -58,62 +60,86 @@ class Form extends Component {
       ARA: '0',
       TUN: '0'
     });
-    this.state.value = '';
   };
   render() {
     return (
-      <div className="form-group ">
-        <br />
-        <InputGroup
-          type="text"
-          onChange={this.handleChange}
-          className="form-control "
-          id="ex1"
-          type="text"
-          style={this.style}
-        >
-          <InputGroupAddon addonType="prepend">@Input Text</InputGroupAddon>
-          <Input value={this.state.value} />
-          &nbsp; &nbsp;
-          <Button color="warning" onClick={this.reset}>
-            reset
-          </Button>
-          &nbsp; &nbsp; &nbsp;
-          <Button color="primary" onClick={this.getLang}>
-            Sumbit
-          </Button>
+      <div className="text-center">
+        <ParticleAnimation
+          numParticles={900}
+          style={{
+            position: 'absolute',
+            width: '100%',
+            height: '100%'
+          }}
+        />
+        <InputGroup>
+          <div className="container">
+            &nbsp; &nbsp;&nbsp;
+            <input
+              type="image"
+              alt=""
+              src="http://www.ensi-uma.tn/wp-content/uploads/2017/01/cropped-Logo-p.png"
+              width="100px"
+            />
+          </div>
         </InputGroup>
-        <br />
-        <InputGroup
-          type="text"
-          value={this.state.RES}
-          onChange={this.handleChange}
-          className="form-control"
-          id="ex1"
-          type="text"
-          style={this.styleRes}
-          left="200px"
-        >
-          <InputGroupAddon addonType="prepend">@Result</InputGroupAddon>
-          <Input value={this.state.RES} />
-        </InputGroup>
-        <br />
 
-        <div style={this.style} className="text-center col-md-5">
-          ARABIC <p>{this.state.ARA}</p>
+        <div className="container text-center ">
+          <br />
+          &nbsp; &nbsp;&nbsp;
+          <br />
+          <InputGroup
+            type="text"
+            onChange={this.handleChange}
+            className="form-control "
+            id="ex1"
+            style={this.style}
+          >
+            <InputGroupAddon addonType="prepend">@Input Text</InputGroupAddon>
+            <Input value={this.state.value} />
+            &nbsp; &nbsp;
+            <Button color="warning" onClick={this.reset}>
+              reset
+            </Button>
+            &nbsp; &nbsp; &nbsp;
+            <Button color="primary" onClick={this.getLang}>
+              Sumbit
+            </Button>
+          </InputGroup>
+          <br />
+          <InputGroup
+            type="text"
+            value={this.state.RES}
+            onChange={this.handleChange}
+            className="form-control"
+            id="ex1"
+            style={this.styleRes}
+            left="200px"
+          >
+            <InputGroupAddon addonType="prepend">@Result</InputGroupAddon>
+            <Input value={this.state.RES} />
+          </InputGroup>
+          <br />
+          <InputGroup>
+            {' '}
+            <div class="container">
+              <div style={this.style} className="text-center">
+                ARABIC <p>{Math.round(this.state.ARA)} %</p>
+              </div>
+              <Progress striped style={this.styleBar} value={this.state.ARA} />
+              <br />
+              <div striped style={this.style} className="text-center">
+                TUNISIAN <p>{Math.round(this.state.TUN)} % </p>
+              </div>
+              <Progress striped style={this.styleBar} value={this.state.TUN} />
+              <br />
+              <br />
+              <br />
+              <br />
+            </div>
+          </InputGroup>
+          <Upload />
         </div>
-        <Progress style={this.styleBar} value={this.state.ARA} />
-        <br />
-        <div style={this.style} className="text-center">
-          TUNISIAN <p>{this.state.TUN}</p>
-        </div>
-        <Progress style={this.styleBar} value={this.state.TUN} />
-        <br />
-        <br />
-        <br />
-        <br />
-
-        <Upload />
       </div>
     );
   }

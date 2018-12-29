@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from 'axios';
-import { Progress } from 'reactstrap';
+import {
+  Progress,
+  InputGroup,
+  InputGroupAddon,
+  Input,
+  Button
+} from 'reactstrap';
 class Upload extends Component {
   state = {
     name: '',
@@ -10,7 +16,13 @@ class Upload extends Component {
   };
   styleBar = {
     width: 800,
-    height: 20
+    height: 20,
+    top: 0,
+    right: 0
+  };
+  styleRes = {
+    width: 250,
+    height: 50
   };
 
   fileSelectedHandler = event => {
@@ -38,30 +50,41 @@ class Upload extends Component {
 
   render() {
     return (
-      <div class="input-group col-md-5">
-        <div class="input-group-prepend">
-          <button
+      <InputGroup>
+        <InputGroupAddon addonType="prepend">
+          {' '}
+          <Button
             class="input-group-text"
             id="inputGroupFileAddon01"
             onClick={this.fileUploadHandler}
           >
             Upload
-          </button>
-        </div>
-        <div class="custom-file">
-          <input
-            type="file"
-            class="custom-file-input"
-            id="inputGroupFile01"
-            aria-describedby="inputGroupFileAddon01"
-            onChange={this.fileSelectedHandler}
-          />
-          <label class="custom-file-label">{this.state.name}</label>
-        </div>
+          </Button>
+          <br />
+          <div class="custom-file">
+            <input
+              type="file"
+              class="custom-file-input col-md-8"
+              onChange={this.fileSelectedHandler}
+            />
+            <label class="custom-file-label">{this.state.name}</label>
+          </div>
+          <InputGroup className="col-md-3">
+            {' '}
+            <InputGroupAddon addonType="prepend">
+              <Button>@Accuracy</Button>
+            </InputGroupAddon>
+            <Input value={'100'} className="input-group col-md-9 " />
+          </InputGroup>
+        </InputGroupAddon>
+        <br />
         <Progress animated style={this.styleBar} value={this.state.value}>
           {this.state.value} %
         </Progress>
-      </div>
+        <br />
+        <br />
+        <br />
+      </InputGroup>
     );
   }
 }

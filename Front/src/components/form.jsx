@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Upload from './upload';
-
+import './style.css';
 import ParticleAnimation from 'react-particle-animation';
 import {
   Button,
@@ -12,9 +12,11 @@ import {
 class Form extends Component {
   state = {
     value: '',
-    RES: 'Nothing',
+    RES: '',
     ARA: '0',
-    TUN: '0'
+    TUN: '0',
+    NEG: '0',
+    POS: '0'
   };
   style = {
     width: 800,
@@ -37,6 +39,8 @@ class Form extends Component {
         this.setState({
           ARA: parseFloat(json.ARA) * 100,
           TUN: parseFloat(json.TUN) * 100,
+          NEG: parseFloat(json.NEG) * 100,
+          POS: parseFloat(json.POS) * 100,
           RES: json.res
         });
         console.log('parsed json', json);
@@ -56,9 +60,11 @@ class Form extends Component {
   reset = () => {
     this.setState({
       value: '',
-      RES: 'Nothing',
+      RES: '',
       ARA: '0',
-      TUN: '0'
+      TUN: '0',
+      POS: '0',
+      NEG: 0
     });
   };
   render() {
@@ -131,7 +137,31 @@ class Form extends Component {
               <div striped style={this.style} className="text-center">
                 TUNISIAN <p>{Math.round(this.state.TUN)} % </p>
               </div>
-              <Progress striped style={this.styleBar} value={this.state.TUN} />
+              <Progress
+                vertical
+                striped
+                style={this.styleBar}
+                value={this.state.TUN}
+              />
+              <br />
+              <br />
+              <div striped style={this.style} className="text-center">
+                Positive <p>{Math.round(this.state.POS)} % </p>{' '}
+              </div>
+              <Progress
+                color="success"
+                value={this.state.POS}
+                style={this.styleBar}
+              />
+              <br />
+              <div striped style={this.style} className="text-center">
+                Negative <p>{Math.round(this.state.NEG)} % </p>{' '}
+              </div>
+              <Progress
+                color="danger"
+                value={this.state.NEG}
+                style={this.styleBar}
+              />
               <br />
               <br />
               <br />

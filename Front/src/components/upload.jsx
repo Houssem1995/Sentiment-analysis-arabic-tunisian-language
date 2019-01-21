@@ -67,14 +67,16 @@ class Upload extends Component {
               class="custom-file-input col-md-8"
               onChange={this.fileSelectedHandler}
             />
+
             <label class="custom-file-label">{this.state.name}</label>
           </div>
           <InputGroup className="col-md-3">
             {' '}
             <InputGroupAddon addonType="prepend">
-              <Button>@Accuracy</Button>
+              <a href="http://localhost:5000/result.csv">
+                <Button>@Get_Result</Button>
+              </a>
             </InputGroupAddon>
-            <Input value={'100'} className="input-group col-md-9 " />
           </InputGroup>
         </InputGroupAddon>
         <br />

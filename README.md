@@ -20,7 +20,7 @@ You can also drag and drop a text file or whatever containing sentences, click o
 
 ## Frontend 
 
-### `npm install && npm start`
+### `cd Front && npm install && npm start`
 
 
 # ScreenShots :-D :-D 
